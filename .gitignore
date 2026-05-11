@@ -1,0 +1,11 @@
+﻿# Visual Studio
+.vs/
+bin/
+obj/
+
+# Node / frontend
+node_modules/
+
+# OS files
+.DS_Store
+Thumbs.db
