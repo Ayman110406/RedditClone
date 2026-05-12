@@ -1,0 +1,62 @@
+.gegvensveld {
+    background-color: #1A1A1B;
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+}
+
+.card {
+    background-color: #272729;
+    border: 1px solid #343536;
+    border-radius: 8px;
+    padding: 32px;
+    width: fit-content;
+    min-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.title {
+    color: #D7DADC;
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.input {
+    background-color: #1A1A1B;
+    border: 1px solid #343536;
+    border-radius: 6px;
+    color: #D7DADC;
+    padding: 10px 12px;
+    font-size: 14px;
+    width: 100%;
+}
+
+    .input:focus {
+        outline: none;
+        border-color: #FF4500;
+    }
+
+.button {
+    background-color: #FF4500;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 11px;
+}
+
+    .button:hover {
+        opacity: 0.9;
+    }

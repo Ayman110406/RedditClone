@@ -1,0 +1,42 @@
+.navbar {
+    background-color: #FF4500;
+    padding: 10px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: #ffffff;
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.logoLink {
+    text-decoration: none;
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.button {
+    background: transparent;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    font-size: 15px;
+    padding: 4px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.button:hover {
+    background: #ffffff;
+    color: #FF4500;
+}
+.button:global(.active) {
+    background: #ffffff;
+    color: #FF4500;
+}
