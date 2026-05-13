@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Get-ChildItem -Path \"C:\\\\Users\\\\ayman\\\\source\\\\repos\\\\RedditClone\\\\frontend\" -Recurse -File | Where-Object { $_.FullName -notmatch \"node_modules\" -and $_.FullName -notmatch \"dist\" } | Select-Object -ExpandProperty FullName)"
+    ]
+  }
+}

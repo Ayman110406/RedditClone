@@ -18,30 +18,22 @@ namespace RedditClone.Controllers
         [HttpPost("register")]
         public async Task<IActionResult> Register(RegisterDto regDTO)
         {
-
-            if (await _service.RegisterUserAsync(regDTO))
-            {
-                return Ok("Gebruiker geregistreerd");
+            var result = await _service.RegisterUserAsync(regDTO);
+            if(!result.Success){
+                return BadRequest(result);
             }
-            else
-            {
-                return BadRequest("Registreren mislukt");
-            }
-
+            return Ok(result);
         }
 
         [HttpPost("login")]
         public async Task<IActionResult> Login(LoginDto loginDTO)
         {
-            var authResponse = await _service.LoginUserAsync(loginDTO);
-            if (authResponse != null)
+            var result = await _service.LoginUserAsync(loginDTO);
+            if (!result.Success)
             {
-                return Ok(authResponse);
+                return Unauthorized(result);
             }
-            else
-            {
-                return Unauthorized("Inloggen mislukt");
-            }
+            return Ok(result);
 
         }
     }
