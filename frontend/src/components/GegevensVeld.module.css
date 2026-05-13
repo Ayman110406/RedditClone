@@ -60,3 +60,13 @@
     .button:hover {
         opacity: 0.9;
     }
+
+    .button:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+
+.error {
+    color: #FF4500;
+    font-size: 13px;
+}
