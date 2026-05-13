@@ -1,0 +1,20 @@
+﻿Achtergrond pagina:      #1A1A1B  (diepdonker)
+Achtergrond cards/panel: #272729  (iets lichter donker)
+Achtergrond vote-kolom:  #1A1A1B  (zelfde als pagina)
+Navbar:                  #FF4500  (oranje)
+Borders:                 #343536  (subtiel grijs)
+
+Primaire knop (inloggen):    achtergrond #FF4500 · tekst #FFFFFF
+Secundaire knop (registreren): achtergrond transparent · border+tekst #FF4500
+Navbar knoppen:              wit omranding · wit tekst / wit achtergrond · oranje tekst
+
+Tekst primair:           #D7DADC  (lichtgrijs, titels)
+Tekst secundair:         #818384  (muted, meta/timestamps)
+Accent tekst:            #FF4500  (gebruikersnamen, links)
+Upvote icoon:            #FF4500
+Downvote icoon:          #7193FF  (blauw)
+
+Inputs:                  achtergrond #1A1A1B · border #343536 · tekst #D7DADC
+Sort actief:             #FF4500
+Sort inactief:           #272729 · tekst #818384
+Comment nested border:   #FF4500
