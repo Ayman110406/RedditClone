@@ -1,8 +1,11 @@
 import styles from './Navbar.module.css'
 import { NavLink } from 'react-router-dom'
+import { useState } from 'react'
 
 
 function Navbar() {
+    const [token, setToken] = useState(localStorage.getItem('token'))
+
 
     return (
         <>
@@ -12,8 +15,18 @@ function Navbar() {
                     <p className={styles.logo}>Reddit Clone</p>
                 </NavLink>
                 <div className={styles.buttons}>
-                    <NavLink to="/register" className={styles.button}>Registreren</NavLink>
-                    <NavLink to="/login" className={styles.button}>Inloggen</NavLink>
+                    {token ? (
+                        <button className={styles.button} onClick={() => {
+                            localStorage.removeItem('token')
+                            setToken(null)
+                            window.location.href = '/'
+                        }}>Uitloggen</button>
+                    ) : (
+                        <>
+                            <NavLink to="/register"><button className={styles.button}>Registreren</button></NavLink>
+                            <NavLink to="/login"><button className={styles.button}>Inloggen</button></NavLink>
+                        </>
+                    )}
                 </div>
             </nav>
 

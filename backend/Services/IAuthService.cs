@@ -4,7 +4,7 @@ namespace RedditClone.Services
 {
     public interface IAuthService
     {
-        Task<bool> RegisterUserAsync(RegisterDto dto);
-        Task<AuthResponseDto?> LoginUserAsync(LoginDto dto);
+        Task<ServiceResult<object>> RegisterUserAsync(RegisterDto dto);
+        Task<ServiceResult<AuthResponseDto>> LoginUserAsync(LoginDto dto);
     }
 }
