@@ -1,4 +1,3 @@
-import Navbar from "../components/Navbar"
 import GegevensVeld from "../components/GegevensVeld"
 import { register } from '../services/AuthService'
 import { useState } from 'react'
@@ -40,7 +39,6 @@ function Registerpage() {
 
     return (
         <>
-            <Navbar />
             <GegevensVeld mode="register" onSubmit={handleRegister} error={error} />
         </>
     )

@@ -11,7 +11,7 @@ function Navbar() {
         <>
 
             <nav className={styles.navbar}>
-                <NavLink to="/" className={styles.logoLink}>
+                <NavLink to={token ? '/home' : '/'}  className={styles.logoLink}>
                     <p className={styles.logo}>Reddit Clone</p>
                 </NavLink>
                 <div className={styles.buttons}>

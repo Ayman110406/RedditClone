@@ -7,10 +7,12 @@ namespace RedditClone.Services
     public class PostService : IPostService
     {
         private readonly IPostRepository _repository;
+        private readonly IVoteRepository _voteRepository;
 
-        public PostService(IPostRepository repository)
+        public PostService(IPostRepository repository, IVoteRepository voteRepository)
         {
             _repository = repository;
+            _voteRepository = voteRepository;
         }
 
         // Post toevoegen
@@ -43,8 +45,16 @@ namespace RedditClone.Services
         }
 
         // Alle posts opvragen
-        public async Task<ServiceResult<List<PostDto>>> GetAllPostsAsync() {
+        public async Task<ServiceResult<List<PostDto>>> GetAllPostsAsync(Guid? userId = null) {
             var allePosts = await _repository.GetAllAsync();
+
+            var userVoteMap = new Dictionary<Guid, int>();
+            if (userId.HasValue)
+            {
+                var userVotes = await _voteRepository.GetVotesByUserAsync(userId.Value, TargetType.Post);
+                userVoteMap = userVotes.ToDictionary(v => v.TargetId, v => v.Value);
+            }
+
             var postDtos = allePosts.Select(p => new PostDto
             {
                 Id = p.Id,
@@ -53,6 +63,7 @@ namespace RedditClone.Services
                 Username = p.Author.Username,
                 VoteScore = p.VoteScore,
                 CommentCount = p.Comments.Count,
+                UserVote = userVoteMap.GetValueOrDefault(p.Id, 0),
                 CreatedAt = p.CreatedAt
             }).ToList();
 

@@ -12,10 +12,12 @@ namespace RedditClone.Controllers
     {
 
         private readonly IPostService _service;
+        private readonly IVoteService _voteService;
 
-        public PostsController(IPostService service)
+        public PostsController(IPostService service, IVoteService voteService)
         {
             _service = service;
+            _voteService = voteService;
         }
 
         [Authorize]
@@ -43,7 +45,12 @@ namespace RedditClone.Controllers
         [HttpGet]
         public async Task<IActionResult> GetPosts()
         {
-            var posts = await _service.GetAllPostsAsync();
+            Guid? userId = null;
+            var claim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (claim != null)
+                userId = Guid.Parse(claim);
+
+            var posts = await _service.GetAllPostsAsync(userId);
             return Ok(posts);
         }
 
@@ -53,6 +60,17 @@ namespace RedditClone.Controllers
             var result = await _service.GetPostByIdAsync(id);
             if (!result.Success)
                 return NotFound(result);
+            return Ok(result);
+        }
+
+        [Authorize]
+        [HttpPost("{id}/vote")]
+        public async Task<IActionResult> Vote(Guid id, [FromBody] VoteDto vote)
+        {
+            var userId = Guid.Parse(User.FindFirst(ClaimTypes.NameIdentifier)!.Value);
+            var result = await _voteService.VoteOnPostAsync(id, userId, vote.Value);
+            if (!result.Success)
+                return BadRequest(result);
             return Ok(result);
         }
     }
