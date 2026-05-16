@@ -51,6 +51,8 @@ builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<ITokenService, TokenService>();
 builder.Services.AddScoped<IPostRepository, PostRepository>();
 builder.Services.AddScoped<IPostService, PostService>();
+builder.Services.AddScoped<IVoteRepository, VoteRepository>();
+builder.Services.AddScoped<IVoteService, VoteService>();
 
 // Hieronder stellen we JWT als authenticatie met de validatieregels
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)

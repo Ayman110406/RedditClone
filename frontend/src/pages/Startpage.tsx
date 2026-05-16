@@ -1,11 +1,9 @@
-import Navbar from '../components/Navbar.tsx'
 import logo from '../images/logo.svg'
 import styles from './Startpage.module.css'
 function Startpage() {
 
     return (
         <>
-            <Navbar />
            
             <div className={styles.container}>
                 <h1 className={styles.title}>Welkom bij Reddit Clone</h1>

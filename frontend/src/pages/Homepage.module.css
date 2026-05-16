@@ -1,0 +1,195 @@
+.layout {
+    display: grid;
+    grid-template-columns: 280px 1fr 280px;
+    gap: 24px;
+    margin: 0 auto;
+    padding: 24px 0px;
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.welcomeCard {
+    background: #272729;
+    border: 0.5px solid #343536;
+    border-radius: 8px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.welcomeText {
+    color: #D7DADC;
+    font-size: 20px;
+}
+
+    .welcomeText span {
+        color: #FF4500;
+    }
+
+.createBtn {
+    background: #FF4500;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 8px;
+    font-size: 12px;
+    cursor: pointer;
+    width: 100%;
+}
+
+    .createBtn:hover {
+        opacity: 0.9;
+    }
+
+.feed {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: #272729;
+    border: 0.5px solid #343536;
+    border-radius: 8px;
+    padding: 16px;
+    min-height: calc(100vh - 80px);
+}
+
+.emptyMsg {
+    color: #818384;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 24px;
+}
+
+/* Modal */
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+
+.modal {
+    background: #1A1A1B;
+    border: 0.5px solid #343536;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 540px;
+    padding: 24px;
+}
+
+.modalHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.modalTitle {
+    color: #D7DADC;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.closeBtn {
+    background: transparent;
+    border: none;
+    color: #818384;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+    .closeBtn:hover {
+        color: #D7DADC;
+    }
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.input {
+    background: #272729;
+    border: 0.5px solid #343536;
+    border-radius: 4px;
+    color: #D7DADC;
+    font-size: 14px;
+    padding: 10px 12px;
+    outline: none;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+    .input:focus {
+        border-color: #FF4500;
+    }
+
+.textarea {
+    background: #272729;
+    border: 0.5px solid #343536;
+    border-radius: 4px;
+    color: #D7DADC;
+    font-size: 14px;
+    padding: 10px 12px;
+    outline: none;
+    resize: vertical;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+    .textarea:focus {
+        border-color: #FF4500;
+    }
+
+.errorMsg {
+    color: #FF585B;
+    font-size: 13px;
+}
+
+.formFooter {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 4px;
+}
+
+.cancelBtn {
+    background: transparent;
+    border: 1px solid #818384;
+    border-radius: 20px;
+    color: #D7DADC;
+    font-size: 13px;
+    padding: 6px 16px;
+    cursor: pointer;
+}
+
+    .cancelBtn:hover {
+        border-color: #D7DADC;
+    }
+
+.submitBtn {
+    background: #FF4500;
+    border: none;
+    border-radius: 20px;
+    color: #fff;
+    font-size: 13px;
+    padding: 6px 16px;
+    cursor: pointer;
+}
+
+    .submitBtn:hover {
+        opacity: 0.9;
+    }
+
+    .submitBtn:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
