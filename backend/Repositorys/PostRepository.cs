@@ -13,6 +13,7 @@ namespace RedditClone.Repositorys
             _context = context;
         }
 
+        // Post ophalen op basis van id
         public async Task<Post?> GetByIdAsync(Guid id) {
             return await _context.Posts
                 .Include(p => p.Author)
@@ -21,20 +22,29 @@ namespace RedditClone.Repositorys
                 //.Include(p => p.Votes)
                 .FirstOrDefaultAsync(p => p.Id == id);
         }
-        public async Task<List<Post>> GetAllAsync() { 
+
+        // Alle posts ophalen
+        public async Task<List<Post>> GetAllAsync() {
             return await _context.Posts
                 .Include(p => p.Author)
                 .Include(p => p.Comments)
+                .Include(p => p.Votes)
                 .ToListAsync();
         }
+
+        // Nieuwe post toevoegen
         public async Task AddPostAsync(Post post) { 
             await _context.Posts.AddAsync(post);
         }
+
+        // Post verwijderen op basis van id
         public async Task DeletePostAsync(Guid id) {
             var post = await _context.Posts.FindAsync(id);
             if (post != null)
                 _context.Posts.Remove(post);
         }
+
+        // Veranderingen opslaan in de database
         public async Task SaveChangesAsync() { 
             await _context.SaveChangesAsync();
         }

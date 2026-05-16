@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-ChildItem -Path C:\\\\Users\\\\ayman\\\\source\\\\repos\\\\RedditClone -Directory)",
+      "Bash(Select-Object Name)",
+      "PowerShell(ls -Recurse \"C:\\\\Users\\\\ayman\\\\source\\\\repos\\\\RedditClone\\\\frontend\\\\src\" | Where-Object {$_.PSIsContainer -eq $false} | Select-Object FullName)"
+    ]
+  }
+}

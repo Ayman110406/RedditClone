@@ -9,6 +9,7 @@
         public string Username { get; set; }
         public int VoteScore { get; set; }
         public int CommentCount { get; set; }
+        public int UserVote { get; set; }
         public DateTime CreatedAt { get; set; }
 
     }
